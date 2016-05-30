@@ -18,7 +18,7 @@ $(document).ready(function(){
 
     $(document).on("scroll", function(event){
         navbarEditOnScroll();
-        smoothScrollFunction(scroll_obj.last_scroll_top, event);
+        // smoothScrollFunction(scroll_obj.last_scroll_top, event);
     });
 
     $(".brand-logo").on("click", function(){

@@ -154,6 +154,14 @@ hr{
     margin-bottom: 30px;
 }
 
+.tabs .tab a{
+    color: #ff4545;
+}
+
+.tabs .indicator{
+    background-color: #ff4545;
+}
+
 .tab_contents{
 }
 
