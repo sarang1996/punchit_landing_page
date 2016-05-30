@@ -1,9 +1,9 @@
 var app = angular.module('punchit.factory',[]);
 
-app.factory('URLSERVICE',function(){
+app.factory('UrlService',function(){
     return{
       HostName : "http://52.39.56.221",
-      SignUp : {"url":"/api/users",type:"POST",requiresAuth:false},
+      SignUp : {"url":"/api/users",type:"POST",requiresAuth:false}
     };
 });
 
@@ -14,10 +14,10 @@ app.factory('PostMan',['$http','$q',function($http,$q){
       if(urlObject.type == "POST"){
         if(urlObject.requiresAuth)
         {
-          // post request without auth
+          // post request auth
           $http.post(urlObject.url,params).
             success(function(data){
-              console.log(data);
+              console.log(JSON.stringify(data));
               deferred.resolve(data);
             }).
             error(function(error){
@@ -25,12 +25,17 @@ app.factory('PostMan',['$http','$q',function($http,$q){
               deferred.reject(error);
             });
         }
-        else {
-// post request with auth
-        }
       }
       else {
-// get request
+          // get request
+          $http.get(urlObject.url,params)
+            .success(function(data){
+              console.log(JSON.stringify(data));
+              deferred.resolve(data)
+            })
+            .error(function(data){
+              console.log(error);
+            })
       }
     }
   };

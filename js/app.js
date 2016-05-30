@@ -1,5 +1,5 @@
-var app = angular.module('punchit',['punchit.factory']);
+var app = angular.module('punchit',['punchit.factory','ngCookies']);
 
-app.controller('postsController',function($scope){
-
-});
+app.controller('postsController',['$scope','$cookies','PostMan','UrlService',function($scope,PostMan,UrlService,$scope,$cookies){
+        
+}]);
