@@ -13,8 +13,8 @@ $(document).ready(function(){
     $('.slider').slider();
     $('ul.tabs').tabs();
 
-    $("nav").css("background-color", "rgba(255,255,255,0)");
-    $("nav").css("box-shadow", "none");
+    // $("nav").css("background-color", "rgba(255,255,255,0)");
+    // $("nav").css("box-shadow", "none");
 
     $(document).on("scroll", function(event){
         navbarEditOnScroll();
@@ -34,18 +34,18 @@ function navbarEditOnScroll(){
 
     if($(document).scrollTop() > 150){
 
-        //if(nav_dom.hasClass("navbar_before_scroll")){
-            nav_dom.removeClass();
-        //}
+        console.log(1);
+
+        nav_dom.removeClass();
 
         nav_dom.addClass("navbar_after_scroll");
 
     }
     else{
 
-        //if(nav_dom.hasClass("navbar_after_scroll")){
-            nav_dom.removeClass();
-        //}
+        console.log(2);
+
+        nav_dom.removeClass();
 
         nav_dom.addClass("navbar_before_scroll");
     }
@@ -67,8 +67,6 @@ function smoothScrollFunction(last_scroll_top, event){
     // Check if scroll is down or up
     if(st > last_scroll_top && is_srolling == false) {
         // if scroll down
-
-        console.log("last : " + scroll_obj.last_scroll_top);
 
         if( scroll_obj.last_scroll_top == 0 ) {
             $("body").animate(
@@ -111,8 +109,6 @@ function smoothScrollFunction(last_scroll_top, event){
     } else if(st < scroll_obj.last_scroll_top && is_srolling == false) {
         // if scroll up
 
-
-        console.log(" else last : " + scroll_obj.last_scroll_top);
         if( scroll_obj.last_scroll_top > section_3_offset.top ) {
             $("body").animate(
                 {scrollTop: section_3_offset.top},
@@ -154,8 +150,6 @@ function smoothScrollFunction(last_scroll_top, event){
     }
 
     scroll_obj.last_scroll_top = st;
-
-    console.log("Last : " + scroll_obj.last_scroll_top);
 }
 
 function typeAnimation(){

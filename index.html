@@ -19,6 +19,7 @@
 	<!-- Plugin CSS -->
     	<!-- <link rel="stylesheet" href="css/animate.min.css" type="text/css"> -->
 
+
     <!-- Roboto font -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
 
@@ -27,18 +28,21 @@
 
 </head>
 
-<body ng-app="">
+</head>
+
+<body ng-app="punchit">
 
 <!-- navbar -->
 <div class="navbar-fixed">
     <nav class="navbar_before_scroll">
-	    <div class="nav-wrapper">
-    	  	<center>
-    			<a href="" class="brand-logo"> <img src="./images/logo_text.png" alt="Punchit logo" class="responsive-img" /> </a>
+        <div class="nav-wrapper">
+            <center>
+                <a href="" class="brand-logo"> <img src="./images/logo_text.png" alt="Punchit logo" class="responsive-img" /> </a>
             </center>
         </div>
     </nav>
 </div>
+
 
 <div id="section_1" class="section" style="padding-top: 13%;">
 
@@ -51,6 +55,7 @@
 </div>
 
 <div id="section_2" class="section_common section_pink_bg section">
+
     <div>
         <p class="section_title">Comparison gives you a way to look at the world from a different perspective !</p>
 
@@ -64,7 +69,8 @@
     </div>
 </div>
 
-<div id="section_3"  class="section_common section">
+
+<div id="section_3"  class="section_common section" ng-controller="postsController">
     <div>
 
         <p class="section_title">Glimpse of Punchit.io</p>
@@ -173,6 +179,9 @@
 
                 </div>
 
+        <div>
+
+
         </div>
 
     </div>
@@ -197,9 +206,9 @@
                 <div class="slider">
                     <ul class="slides">
                         <li>
-                            <img src="./images/mocup/1.png" class="responsive-img" style="width: 100%; height: 100%;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('./images/mocup/jay.png') no-repeat center; background-size: contain;"></div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <img src="./images/mocup/2.png">
                         </li>
                         <li>
@@ -213,34 +222,7 @@
                         </li>
                         <li>
                             <img src="./images/mocup/6.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/6.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/7.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/8.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/9.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/10.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/11.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/12.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/13.png">
-                        </li>
-                        <li>
-                            <img src="./images/mocup/14.jpg">
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 
@@ -262,6 +244,7 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 
+
     <!-- Custom js -->
         <script type="text/javascript" src="./js/custom_js.js"></script>
 
@@ -271,9 +254,17 @@
     <!-- Smooth Scroll js -->
         <script type="text/javascript" src="./js/jquery.smooth-scroll.js"></script>
 
+    <!-- including app.js angular code will be present in it.  -->
+    <script type="text/javascript" src="js/factory.js"></script>  
+    <script type="text/javascript" src="js/app.js"/>
+
+    <script>
+        $(document).ready(function(){
+            $('.slider').slider();
+        });
+    </script>
 
 </body>
 
 
 </html>
-          

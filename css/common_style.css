@@ -8,13 +8,13 @@ body, html{
 }
 
 nav{
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
 }
 
 .navbar_before_scroll{
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
     /*background-color: rgba(255,255,255,0);*/
     /*box-shadow: none;*/
 
@@ -22,7 +22,7 @@ nav{
 
 .navbar_after_scroll{
     background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,-0.88);
     /*background-color: rgba(255,255,255,1);*/
     /*box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);*/
     /*transition: all 3s ease-out;*/
@@ -99,14 +99,25 @@ hr{
     height: 430px !important;
 }
 
-.slides{
-    width: auto;
+.slider .slides{
+    width: 253px;
     height: 450px !important;
     z-index: -1;
+    background-color: rgba(255,255,255, 0);
+}
+
+.slider .indicators{
+    position: relative;
+    margin-top: 10px;
 }
 
 .indicators, .indicator-item{
     z-index: 5;
+}
+
+.slider .indicators .indicator-item{
+    height: 10px;
+    width: 10px;
 }
 
 .indicators .active{
