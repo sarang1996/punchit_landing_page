@@ -35,10 +35,12 @@
 <!-- navbar -->
 <div class="navbar-fixed">
     <nav class="navbar_before_scroll">
-        <div class="nav-wrapper">
-            <center>
+        <div class="nav-wrapper row">
+            <div class="col l5 m4 s1"> <br/> </div>
+            <div class="col l4 m4 s10">
                 <a href="" class="brand-logo"> <img src="./images/logo_text.png" alt="Punchit logo" class="responsive-img" /> </a>
-            </center>
+            </di
+            <div class="col l3 m4 s1"> <br/> </div>
         </div>
     </nav>
 </div>
@@ -122,11 +124,11 @@
                             <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
                                 <div class="row">
 
-                                    <div class="col  waves-effect waves-light" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+                                    <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
                                     <a><img class="responsive-img" src="" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
                                     </div>
                                 
-                                    <div class="col waves-effect waves-light" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+                                    <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
                                     <a><img class="responsive-img" src="" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
                                     </div>
 
@@ -149,15 +151,21 @@
                             </div>
 
                             <!-- share comment icons -->
-                            <!-- <div class="row">
+                            <div class="row">
 
-                                <div class="col s2 l1">
+                                <!-- <div class="col s2 l1">
                                     <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
-                                </div>
-                                <div class="col s2 l1">
-                                    <a href="" class="modal-trigger"><img src="images/comment.png" style="height:inherit;width:70px;margin-left:10px;" id="comment" ng-click="openComment($index)"></a>
-                                </div>
-                            </div> -->
+                                </div> -->
+
+                                <!-- Comment button -->
+                                    <div class="col s2 l1">
+                                        <a href="#comment_modal" class="modal-trigger waves-effect waves-light">
+                                            <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment" ng-click="openComment($index)">
+                                        </a>
+                                    </div>
+
+
+                            </div>
                         </div>
 
                     </div>
@@ -182,6 +190,47 @@
 
         </div>
     </div>
+
+
+    <!-- Comment Modal -->
+
+        <div id="comment_modal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h5>Comments</h5>
+
+                <div class="row">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            <img src="images/punch_button.png" alt="" class="circle">
+                            <span class="title">Username</span>
+                            <p>
+                                comment!
+                            </p>
+                            <a href="#!" class="secondary-content">Time Stamp</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer row">
+
+                    <form class="col s10">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Comment here....</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <a href="#!" class="waves-effect waves-light btn col s2"> <i class="material-icons">mode_edit</i> </a>
+                
+
+            </div>
+        </div>
+
+    <!-- Comment Modal Ends -->
+
 </div>
 
 
@@ -196,13 +245,13 @@
 
             <div class="col l1 m1"> <br/> </div>
 
-            <div class="col l4">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpunchit.io%2F&tabs=timeline&width=360&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1499844186973620" width="360" height="450" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <div class="col l4 m4 s12">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpunchit.io%2F&tabs=timeline&width=360&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1499844186973620" width="100%" height="100%" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
 
-            <div class="col l7">
+            <div class="col l7 m7 s12">
 
-                <div class="slider">
+                <div class="slider" style="width: 100%; height: 100%;">
                     <ul class="slides">
                         <li>
                             <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('./images/mocup/jay.png') no-repeat center; background-size: contain;"></div>

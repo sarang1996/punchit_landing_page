@@ -6,6 +6,8 @@ var scroll_obj = {last_scroll_top : 0};
 
 $(document).ready(function(){
 
+    $('.modal-trigger').leanModal();
+
     navbarEditOnScroll();
 
     typeAnimation();
@@ -26,6 +28,10 @@ $(document).ready(function(){
             scrollTarget: 0
         });
     });
+
+
+    $('#textarea1').trigger('autoresize');
+
 
 });
 
