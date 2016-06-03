@@ -1,9 +1,12 @@
 var app = angular.module('punchit.factory',[]);
 
+
+
 app.factory('UrlService',function(){
     return{
       HostName : "http://52.39.56.221",
-      SignUp : {"url":"/api/users",type:"POST",requiresAuth:false}
+      SignUp : {"url":"/api/users",type:"POST",requiresAuth:false},
+
     };
 });
 

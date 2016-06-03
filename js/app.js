@@ -1,7 +1,29 @@
-var app = angular.module('punchit',['punchit.factory','ngCookies','ngRoute']);
+var app = angular.module('punchit',['punchit.factory','ngCookies','angularFblogin'])
 
+app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$fblogin',function($scope, $cookies, PostMan, UrlService, $fblogin){
 
-
-app.controller('postsController',['$scope','$cookies','PostMan','UrlService',function($scope,PostMan,UrlService,$scope,$cookies){
-
+      $scope.click = function(){
+        // $fblogin({
+        //   fbId: '811805505603331',
+        //   permissions: 'email,public_profile',
+        //   fields: 'id,name,email,gender'
+        // }).then({
+        //     onSuccess : function(response){
+        //       console.log(response);
+        //     },
+        //     onError : function(error){
+        //       console.log(error);
+        //     },
+        //     onProgress : function(progress){
+        //       console.log(progress);
+        //     }
+        // });
+  $fblogin({
+    fbId: '811805505603331',
+    permissions: 'email,user_birthday',
+    success: function (data) {
+        console.log('User birthday' + data.birthday + 'and email ' + data.email);
+    }
+  });
+}
 }]);

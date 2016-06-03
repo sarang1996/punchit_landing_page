@@ -123,9 +123,8 @@
                             <!-- Post images -->
                             <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
                                 <div class="row">
-
                                     <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
-                                    <a><img class="responsive-img" src="" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
+                                    <a ng-click="click()"><img class="responsive-img" src="" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
                                     </div>
 
 
@@ -161,7 +160,7 @@
                                 <!-- Comment button -->
                                     <div class="col s2 l1">
                                         <a href="#comment_modal" class="modal-trigger waves-effect waves-light">
-                                            <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment" ng-click="openComment($index)">
+                                            <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
                                         </a>
                                     </div>
 
@@ -295,13 +294,15 @@
 		<!-- Angular Js cookie wrapper -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script>
 
-
+		<!-- angularJs wrapper for facebook login -->
+				<script src="js/angular-fblogin.js"></script>
     <!-- Custom js -->
         <script type="text/javascript" src="./js/custom_js.js"></script>
 
     <!-- typed.js -->
         <script type="text/javascript" src="./js/typed.js"></script>
-
+				<!-- facebook sdk -->
+				<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <!-- Smooth Scroll js -->
         <script type="text/javascript" src="./js/jquery.smooth-scroll.js"></script>
 
@@ -312,6 +313,15 @@
     <script>
         $(document).ready(function(){
             $('.slider').slider();
+						$window.fbAsyncInit = function() {
+								FB.init({
+										appId: '811805505603331',
+										status: true,
+										cookie: false,
+										xfbml: false,
+										version: 'v2.4'
+								});
+							};
         });
     </script>
 
