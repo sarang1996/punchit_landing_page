@@ -21,9 +21,24 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
   $fblogin({
     fbId: '811805505603331',
     permissions: 'email,public_profile',
-    fields : 'id,name,profile_picture'
+    fields : 'id,name,picture,gender,email',
     success: function (data) {
-        console.log(JSON.stringify(data));
+        var params = {}
+        params['login_agent'] = "fb"
+        params['name'] = data.name
+        params['email'] = data.email
+        var ninja_name = prompt("Please choose your unique ninja_name");
+        params['ninja_name'] = ninja_name
+        var auth_data = {}
+        auth_data["media"] = "Facebook"
+        auth_data["token"] = data.accessToken
+        params["auth_data"] = auth_data
+        PostMan.makeRequest(UrlService.SignUp,params)
+          .then(function(response){
+            console.log(response);
+          },function(error){
+            console.log(error);
+          })
     }
   });
 }

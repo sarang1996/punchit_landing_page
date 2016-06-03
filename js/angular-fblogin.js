@@ -102,6 +102,7 @@
             getFbFields: function (accessToken) {
                 FB.api('/me', {fields: options.fields}, function(response) {
                     if (response && !response.error) {
+                        response["accessToken"] = accessToken
                         $dfd.resolve(response);
                     }
                     else {

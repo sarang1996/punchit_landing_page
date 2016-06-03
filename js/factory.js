@@ -6,7 +6,6 @@ app.factory('UrlService',function(){
     return{
       HostName : "http://52.39.56.221",
       SignUp : {"url":"/api/users",type:"POST",requiresAuth:false},
-
     };
 });
 
