@@ -48,7 +48,7 @@ nav .brand-logo{
 }
 
 .section_pink_bg{
-    background-color: rgba(255, 69, 69, 0.5);
+    background-color: rgba(255, 69, 69, 0.7);
 }
 
 #section_1{
@@ -86,6 +86,7 @@ nav .brand-logo{
 
 #section_4{
     color: #ffffff;
+    padding-bottom: -500px;
 }
 
 hr{
@@ -170,4 +171,35 @@ hr{
     width: initial;
     height: unset;
     margin-bottom: initial;
+}
+
+.waves-effect.waves-pink .waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+    background-color: rgba(255, 69, 69, 0.65);
+}
+
+.btn,
+.btn:hover{
+    background-color: #ff4545;
+}
+
+.modal{
+    overflow: hidden;
+}
+
+.modal-content{
+    text-align: left;
+}
+
+textarea.materialize-textarea{
+    padding: 0;
+}
+
+.collection .collection-item.avatar img{
+    border: 1px solid #ff4545;
+}
+
+.collection .collection-item .secondary-content{
+    color: #ccc;
 }
