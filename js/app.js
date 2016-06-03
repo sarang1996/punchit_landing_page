@@ -21,6 +21,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
   $fblogin({
     fbId: '811805505603331',
     permissions: 'email,public_profile',
+
     fields : 'id,name,picture,gender,email',
     success: function (data) {
         var params = {}
