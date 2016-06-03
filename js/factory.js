@@ -12,7 +12,7 @@ app.factory('UrlService',function(){
 app.factory('PostMan',['$http','$q',function($http,$q){
   return{
     makeRequest : function(urlObject,params) {
-      var deferred  = $q.deffer();
+      var deferred  = $q.defer();
       if(urlObject.type == "POST"){
         if(urlObject.requiresAuth)
         {
