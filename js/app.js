@@ -20,9 +20,9 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         // });
   $fblogin({
     fbId: '811805505603331',
-    permissions: 'email,user_birthday',
+    permissions: 'email,public_profile',
     success: function (data) {
-        console.log('User birthday' + data.birthday + 'and email ' + data.email);
+        console.log(JSON.stringify(data));
     }
   });
 }
