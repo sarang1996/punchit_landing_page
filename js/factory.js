@@ -14,7 +14,7 @@ app.factory('PostMan',['$http','$q',function($http,$q){
     makeRequest : function(urlObject,params) {
       var deferred  = $q.defer();
       if(urlObject.type == "POST"){
-        if(urlObject.requiresAuth)
+        if(!urlObject.requiresAuth)
         {
           // post request auth
           $http.post(urlObject.url,params).
