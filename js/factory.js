@@ -11,13 +11,13 @@ app.factory('UrlService',function(){
 
 app.factory('PostMan',['$http','$q',function($http,$q){
   return{
-    makeRequest : function(urlObject,JSON.stringify(params)) {
+    makeRequest : function(urlObject,params) {
       var deferred  = $q.defer();
       if(urlObject.type == "POST"){
         if(!urlObject.requiresAuth)
         {
           // post request auth
-          $http.post(urlObject.url,params).
+          $http.post(urlObject.url,JSON.stringify(params)).
             success(function(data){
               console.log(JSON.stringify(data));
               deferred.resolve(data);
