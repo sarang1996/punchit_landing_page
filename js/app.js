@@ -3,21 +3,6 @@ var app = angular.module('punchit',['punchit.factory','ngCookies','angularFblogi
 app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$fblogin',function($scope, $cookies, PostMan, UrlService, $fblogin){
 
       $scope.click = function(){
-        // $fblogin({
-        //   fbId: '811805505603331',
-        //   permissions: 'email,public_profile',
-        //   fields: 'id,name,email,gender'
-        // }).then({
-        //     onSuccess : function(response){
-        //       console.log(response);
-        //     },
-        //     onError : function(error){
-        //       console.log(error);
-        //     },
-        //     onProgress : function(progress){
-        //       console.log(progress);
-        //     }
-        // });
   $fblogin({
     fbId: '811805505603331',
     permissions: 'email,public_profile',
@@ -34,12 +19,13 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         auth_data["media"] = "Facebook"
         auth_data["token"] = data.accessToken
         params["auth_data"] = auth_data
-        PostMan.makeRequest(UrlService.SignUp,params)
-          .then(function(response){
-            console.log(response);
-          },function(error){
-            console.log(error);
-          })
+        var promise = PostMan.makeRequest(UrlService.SignUp,params)
+        console.log(promise);
+          // .then(function(response){
+          //   console.log(response);
+          // },function(error){
+          //   console.log(error);
+          // })
     }
   });
 }
