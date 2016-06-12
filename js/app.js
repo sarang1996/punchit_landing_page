@@ -2,12 +2,12 @@ var app = angular.module('punchit',['punchit.factory','ngCookies','angularFblogi
 
 app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$fblogin',function($scope, $cookies, PostMan, UrlService, $fblogin){
 
-      $scope.click = function(){
+  $scope.click = function(){
   $fblogin({
     fbId: '811805505603331',
     permissions: 'email,public_profile',
 
-    fields : 'id,name,picture,gender,email',
+    fields : 'id,name,picture.type(large),gender,email',
     success: function (data) {
         var params = {}
         params['login_agent'] = "fb"
@@ -17,7 +17,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         auth_data["media"] = "Facebook"
         auth_data["token"] = data.accessToken
         params["auth_data"] = auth_data
-
+        params["ProfilePicture"] = data.picture.data.url
         PostMan.makeRequest(UrlService.check,{"email" : data.email})
           .then(function(response){
             console.log(response);
