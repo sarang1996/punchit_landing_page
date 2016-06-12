@@ -23,7 +23,7 @@ app.factory('PostMan',['$http','$q',function($http,$q){
             success(function(data){
               console.log(JSON.stringify(data));
               deferred.resolve(data);
-            }).
+            })
             error(function(error){
               deferred.reject(error);
             });
@@ -31,13 +31,12 @@ app.factory('PostMan',['$http','$q',function($http,$q){
       }
       else {
           // get request
-          $http.get(urlObject.url,params)
+          $http.get(HostName+urlObject.url,params)
             .success(function(data){
-              console.log(JSON.stringify(data));
               deferred.resolve(data)
             })
             .error(function(data){
-              console.log(error);
+              deferred.reject(error)
             })
       }
       return deferred.promise;

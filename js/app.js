@@ -24,6 +24,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         PostMan.makeRequest(UrlService.check,{"email" : data.email})
           .then(function(response){
             console.log(response);
+            
           },
           function(error){
             console.log(error);
