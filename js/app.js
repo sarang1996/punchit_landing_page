@@ -20,7 +20,8 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
 
         PostMan.makeRequest(UrlService.check,{"email" : data.email})
           .then(function(response){
-            if (response == "yes") {
+            console.log(response);
+            if (response.response == "yes") {
               params['ninja_name'] = response.ninja_name
             }
             else {
