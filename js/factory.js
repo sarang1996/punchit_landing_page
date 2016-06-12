@@ -24,7 +24,6 @@ app.factory('PostMan',['$http','$q',function($http,$q){
               deferred.resolve(data);
             }).
             error(function(error){
-              console.log(error);
               deferred.reject(error);
             });
         }

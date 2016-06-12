@@ -19,6 +19,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         auth_data["media"] = "Facebook"
         auth_data["token"] = data.accessToken
         params["auth_data"] = auth_data
+        console.log(params);
       var promise = PostMan.makeRequest(UrlService.SignUp,params)
       console.log(promise);
       promise.then(function(response){
