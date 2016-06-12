@@ -31,7 +31,7 @@ app.factory('PostMan',['$http','$q',function($http,$q){
       }
       else {
           // get request
-          $http.get(HostName+urlObject.url,params)
+          $http.get(HostName+urlObject.url+"?email"+params.email)
             .success(function(data){
               deferred.resolve(data)
             })
