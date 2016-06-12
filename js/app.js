@@ -20,15 +20,14 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         auth_data["token"] = data.accessToken
         params["auth_data"] = auth_data
         console.log(params);
-      var promise = PostMan.makeRequest(UrlService.SignUp,params)
-      console.log(promise);
-      promise.then(function(response){
-        console.log();
-      },
-      function(error)
-      {
-          console.log(error);
-      })
+
+        PostMan.makeRequest(UrlService.check,{"email" : data.email})
+          .success(function(response){
+            console.log(response)
+          })
+          .error(function(error){
+            console.log(error);
+          })
     }
   });
 }
