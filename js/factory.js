@@ -39,7 +39,7 @@ app.factory('PostMan',['$http','$q',function($http,$q){
               console.log(error);
             })
       }
-      return deferred;
+      return deferred.promise;
     }
   };
 }]);
