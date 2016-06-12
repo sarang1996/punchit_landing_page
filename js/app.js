@@ -21,6 +21,13 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         params["auth_data"] = auth_data
       var promise = PostMan.makeRequest(UrlService.SignUp,params)
       console.log(promise);
+      promise.then(function(response){
+        console.log();
+      },
+      function(error)
+      {
+          console.log(error);
+      })
     }
   });
 }
