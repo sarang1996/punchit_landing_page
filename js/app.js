@@ -13,18 +13,31 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         params['login_agent'] = "fb"
         params['name'] = data.name
         params['email'] = data.email
-        var ninja_name = prompt("Please choose your unique ninja_name");
-        params['ninja_name'] = ninja_name
         var auth_data = {}
         auth_data["media"] = "Facebook"
         auth_data["token"] = data.accessToken
         params["auth_data"] = auth_data
-        console.log(params);
 
         PostMan.makeRequest(UrlService.check,{"email" : data.email})
           .then(function(response){
-            console.log(response);
-            
+            if (response == "yes") {
+              params['ninja_name'] = response.ninja_name
+            }
+            else {
+              var ninja_name = prompt("Please choose your unique ninja_name");
+              params['ninja_name'] = ninja_name
+            }
+            PostMan.makeRequest(UrlService.SignUp,params)
+              .then(function(response){
+                console.log(response);
+                $cookies.put('isLoggedIn',true)
+                $cookies.put('email',params.email)
+                $cookies.put('token',response.token)
+                $cookies.put('id',response.id)
+              },
+              function(error){
+                console.log(error);
+              })
           },
           function(error){
             console.log(error);
