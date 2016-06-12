@@ -22,10 +22,10 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','$f
         console.log(params);
 
         PostMan.makeRequest(UrlService.check,{"email" : data.email})
-          .success(function(response){
-            console.log(response)
-          })
-          .error(function(error){
+          .then(function(response){
+            console.log(response);
+          },
+          function(error){
             console.log(error);
           })
     }
