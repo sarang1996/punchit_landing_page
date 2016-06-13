@@ -30,6 +30,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   $scope.do_comment = function(){
     console.log($cookies.get('isLoggedIn'));
       if ($cookies.get('isLoggedIn')) {
+        var params = {}
         var id = $scope.id
         var token = $cookies.get('token')
         var name = $cookies.get('name')
