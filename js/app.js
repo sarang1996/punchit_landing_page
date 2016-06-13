@@ -45,6 +45,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   function vote(post_id,which,index,category){
     var params = {}
     var id = $cookies.get('id')
+    var token = $cookies.get('token')
     if (category == 1) {
       var post = $scope.communityOne[index]
     }
