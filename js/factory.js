@@ -4,6 +4,7 @@ var app = angular.module('punchit.factory',['ngCookies','angularFblogin']);
 
 app.factory('UrlService',function(){
     return{
+      HostName : ""
       SignUp : {"url":"/api/users",type:"POST",requiresAuth:false},
       check : {"url" : '/api/user_exist',type : "GET",requiresAuth:false},
       getposts : {"url" : '/getpostsforallcommunities', type : "GET", requiresAuth : false},
