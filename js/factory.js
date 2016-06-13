@@ -106,6 +106,7 @@ app.factory('authService',['PostMan','$cookies','$fblogin','$q',function(PostMan
               })
         }
       });
+      return deferred.promise()
     }
   }
 }])
