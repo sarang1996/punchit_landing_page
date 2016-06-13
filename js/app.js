@@ -38,7 +38,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
         params["comment"] = $scope.commentBox
         params["post_objectId"] = id
-        $http.post('/api/do_comment',JSON.stringify(params))
+        $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
           .success(function(response){
             console.log(response);
             $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
@@ -59,7 +59,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
           params["comment"] = $scope.commentBox
           params["post_objectId"] = id
-          $http.post('/api/do_comment',JSON.stringify(params))
+          $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
             .success(function(response){
               console.log(response);
               $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
