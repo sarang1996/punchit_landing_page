@@ -30,7 +30,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   $scope.taptap = function(post_id,which,index,category){
     if (!$cookies.get('isLoggedIn')) {
       authService.authorize()
-        .then(success:function(response){
+        .then(function(response){
           console.log(response);
           vote(post_id,which,index,category)
         },function(error){
