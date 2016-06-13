@@ -44,8 +44,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
 
   function vote(post_id,which,index,category){
     var params = {}
-    var punchers1 = post.Punchers1
-    var punchers2 = post.Punchers2
     var id = $cookies.get('id')
     if (category == 1) {
       var post = $scope.communityOne[index]
@@ -59,6 +57,8 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
     else {
       var post = $scope.communityFour[index]
     }
+    var punchers1 = post.Punchers1
+    var punchers2 = post.Punchers2
     params["post"] = id
     params["which"] = which
     $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
