@@ -31,7 +31,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
     console.log($cookies.get('isLoggedIn'));
       if ($cookies.get('isLoggedIn')) {
         var params = {}
-        var id = $scope.id
+        var id = $scope.id_of_post
         var token = $cookies.get('token')
         var name = $cookies.get('name')
         var ProfilePicture = $cookies.get('ProfilePicture')
