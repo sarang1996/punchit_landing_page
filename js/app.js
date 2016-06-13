@@ -27,6 +27,88 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       })
   }
 
+  $scope.taptap = function(post_id,which,index,category){
+    if (!$cookies.get('isLoggedIn')) {
+      authService.authorize()
+        .then(success:function(response){
+          console.log(response);
+          vote(post_id,which,index,category)
+        },function(error){
+          console.log(error);
+        })
+    }
+    else {
+      vote(post_id,which,index,category)
+    }
+  }
+
+  function vote(post_id,which,index,category){
+    var params = {}
+    var punchers1 = post.Punchers1
+    var punchers2 = post.Punchers2
+    var id = $cookies.get('id')
+    if (category == 1) {
+      var post = $scope.communityOne[index]
+    }
+    else if (category == 2) {
+      var post = $scope.communityTwo[index]
+    }
+    else if (category == 3) {
+      var post = $scope.communityThree[index]
+    }
+    else {
+      var post = $scope.communityFour[index]
+    }
+    params["post"] = id
+    params["which"] = which
+    $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
+    $http.post(UrlService.HostName+"/api/vote",JSON.stringify(params))
+      .success(function(response){
+          console.log(response);
+      })
+      .error(function(error){
+        console.log(error);
+      })
+    if (which == 1) {
+        if (punchers1.indexOf(id) != -1) {
+          punchers1.push(id)
+          if (punchers2.indexOf(id) !=1) {
+            punchers2.splice(id)
+          }
+        }
+    }
+    else {
+      if (punchers2.indexOf(id) != -1) {
+        punchers2.push(id)
+        if (punchers1.indexOf(id) !=1) {
+          punchers1.splice(id)
+        }
+      }
+    }
+    if (category == 1) {
+      post.Punchers1 = punchers1
+      post.Punchers2 = punchers2
+      $scope.communityOne[index] = post
+    }
+    else if (category == 2) {
+      post.Punchers1 = punchers1
+      post.Punchers2 = punchers2
+      $scope.communityTwo[index] = post
+
+    }
+    else if(category == 3) {
+      post.Punchers1 = punchers1
+      post.Punchers2 = punchers2
+      $scope.communityThree[index] = post
+
+    }
+    else {
+      post.punchers1 = punchers1
+      post.punchers2 = punchers2
+      $scope.communityFour[index] = post
+    }
+  }
+
   $scope.do_comment = function(id){
     console.log($cookies.get('isLoggedIn'));
       if ($cookies.get('isLoggedIn')) {
@@ -42,7 +124,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           .success(function(response){
             console.log(response);
             $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
-            Materialize.toast('comment add successfully')
+            Materialize.toast('comment add successfully',1000)
           })
           .error(function(error){
             console.log(error);
@@ -62,7 +144,8 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
             .success(function(response){
               console.log(response);
-              $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
+              $scope.comments.push({"comment" : $scope.commentBox.trim(),"username":name,"ProfilePicture":ProfilePicture})
+              $scope.commentBox = ""
               Materialize.toast('comment add successfully')
             })
             .error(function(error){
@@ -71,7 +154,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         },
         function(error){
           console.log(error);
-          Materialize.toast('oops something went wrong')
+          Materialize.toast('oops something went wrong',1000)
         })
       }
   }
