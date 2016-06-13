@@ -56,7 +56,7 @@ app.factory('PostMan',['$http','$q',function($http,$q){
 }]);
 
 
-app.factory('authService',['PostMan','$cookies','$fblogin','$q',function(PostMan,$cookies,$fblogin,$q){
+app.factory('authService',['PostMan','$cookies','$fblogin','$q','UrlService',function(PostMan,$cookies,$fblogin,$q,UrlService){
   return{
     authorize : function(){
       var deferred = $q.defer()
@@ -106,7 +106,7 @@ app.factory('authService',['PostMan','$cookies','$fblogin','$q',function(PostMan
               })
         }
       });
-      return deferred.promise()
+      return deferred.promise
     }
   }
 }])
