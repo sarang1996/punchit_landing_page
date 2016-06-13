@@ -22,6 +22,8 @@
 
     <!-- Roboto font -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <link rel="stylesheet" href="css/common_style.css" type="text/css">
 
@@ -96,140 +98,336 @@
 
                     <div class="col l4 m6 s12">
 
-                        <div class="section card col l12 s12 main_card">
-                            <div class="card-content content">
-                                <div class="row">
-                                    <div class="col s12">
-                                        <center class="row">
-                                            <img class="circle responsive-img col s6" src="" alt="Profile picture here" style="height: 50px;width:74px"/>
+                      <div class="section card col l12 s12 main_card" ng-repeat="post in communityOne">
+                          <div class="card-content content">
+                              <div class="row">
+                                  <div class="col s12">
+                                      <center class="row">
+                                          <img class="circle responsive-img col s6" src="images/punchit.png" alt="Profile picture here" style="height: 50px;width:74px"/>
 
-                                            <span class="col s6" style="margin-top:15px;">
-                                                <a href="#" style="color:red;float:left">Ninja name here</a>
-                                            </span>
+                                          <span class="col s6" style="margin-top:15px;">
+                                              <a href="#" style="color:red;float:left">Punchit.io</a>
+                                          </span>
+                                      </center>
+                                  </div>
 
-                                            <span style="float:right;color:grey;margin-top:15px;margin-right:1%;" class="s10">
-                                                Time stamp here
-                                            </span>
-                                        </center>
-                                    </div>
+                              <!-- Post Question -->
+                                  <div style="margin-top:1%;" class="col s12">
+                                      <p style="color:#989489;font-size:18px;text-align:left;margin-left:1%;">{{post.title}}</p>
+                                  </div>
+                              </div>
+                          </div>
 
-                                <!-- Post Question -->
-                                    <div style="margin-top:1%;" class="col s12">
-                                        <p style="color:#989489;font-size:18px;text-align:left;margin-left:1%;">Post title here</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Post images -->
-                            <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
-                                <div class="row">
-                                    <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
-                                    <a ng-click="click()"><img class="responsive-img" src="" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
-                                    </div>
+                          <!-- Post images -->
+                          <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
+                              <div class="row">
+                                  <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+                                  <a ng-click="click()"><img class="responsive-img" ng-src="{{post.image1}}" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
+                                  </div>
 
 
-                                    <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
-                                    <a><img class="responsive-img" src="" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
-                                    </div>
+                                  <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+                                  <a><img class="responsive-img" src="{{post.image2}}" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
+                                  </div>
 
-                                </div>
-                            </div>
+                              </div>
+                          </div>
 
-                            <div class="card-content" style="margin-top:-5%;">
-                                <div class="row">
-                                    <div class="col s6">
-                                        <p style="text-align:center;font-size:100%;color:#ff4545">Image 1 title here</p>
-                                        <div style="background-color:#ff4545;color: #ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
-                                        <div style="border:1px;"><p style="text-align:center;font-size:100%;color:red;padding-top:1%">Image 1 total punches here</p></div>
-                                    </div>
-                                    <div class="col s6">
-                                        <p style="text-align:center;font-size:100%;color:#ff4545">Image 2 title here</p>
-                                        <div style="background-color:#ff4545;color:#ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
-                                        <center style="font-size:100%;color:#ff4545;padding-top:1%"><div style="width:15%;">Image 2 total punches here</div></center>
-                                    </div>
-                                </div>
-                            </div>
+                          <div class="card-content" style="margin-top:-5%;">
+                              <div class="row">
+                                  <div class="col s6">
+                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image1title}}</p>
+                                      <div style="background-color:#ff4545;color: #ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+                                      <div style="border:1px;"><p style="text-align:center;font-size:100%;color:red;padding-top:1%">{{post.Punchers1}}</p></div>
+                                  </div>
+                                  <div class="col s6">
+                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image2title}}</p>
+                                      <div style="background-color:#ff4545;color:#ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+                                      <center style="font-size:100%;color:#ff4545;padding-top:1%"><div style="width:15%;">{{post.Punchers2}}</div></center>
+                                  </div>
+                              </div>
+                          </div>
 
-                            <!-- share comment icons -->
-                            <div class="row">
+                          <!-- share comment icons -->
+                          <div class="row">
 
-                                <!-- <div class="col s2 l1">
-                                    <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
-                                </div> -->
+                              <!-- <div class="col s2 l1">
+                                  <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
+                              </div> -->
 
-                                <!-- Comment button -->
-                                    <div class="col s2 l1">
-                                        <a href="#comment_modal" class="modal-trigger waves-effect waves-light">
-                                            <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
-                                        </a>
-                                    </div>
+                              <!-- Comment button -->
+                                  <div class="col s2 l1">
+                                      <a  class="modal-trigger waves-effect waves-light" ng-click="showComments(post.id)">
+                                          <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
+                                      </a>
+                                  </div>
 
 
-                            </div>
-                        </div>
+                          </div>
+                      </div>
 
                     </div>
+									</div>
 
-                    <div id="test2" class="tab_contents" class="col s12">
+                    <div id="test2" class="tab_contents" class="col l4 m6 s12">
 
                         <!-- COPY the same content from TAB 1 above -->
+												<div class="section card col l12 s12 main_card" ng-repeat="post in communityTwo">
+	                          <div class="card-content content">
+	                              <div class="row">
+	                                  <div class="col s12">
+	                                      <center class="row">
+	                                          <img class="circle responsive-img col s6" src="images/punchit.png" alt="Profile picture here" style="height: 50px;width:74px"/>
+
+	                                          <span class="col s6" style="margin-top:15px;">
+	                                              <a href="#" style="color:red;float:left">Punchit.io</a>
+	                                          </span>
+	                                      </center>
+	                                  </div>
+
+	                              <!-- Post Question -->
+	                                  <div style="margin-top:1%;" class="col s12">
+	                                      <p style="color:#989489;font-size:18px;text-align:left;margin-left:1%;">{{post.title}}</p>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- Post images -->
+	                          <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
+	                              <div class="row">
+	                                  <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a ng-click="click()"><img class="responsive-img" ng-src="{{post.image1}}" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
+	                                  </div>
+
+
+	                                  <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a><img class="responsive-img" src="{{post.image2}}" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
+	                                  </div>
+
+	                              </div>
+	                          </div>
+
+	                          <div class="card-content" style="margin-top:-5%;">
+	                              <div class="row">
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image1title}}</p>
+	                                      <div style="background-color:#ff4545;color: #ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <div style="border:1px;"><p style="text-align:center;font-size:100%;color:red;padding-top:1%">{{post.Punchers1}}</p></div>
+	                                  </div>
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image2title}}</p>
+	                                      <div style="background-color:#ff4545;color:#ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <center style="font-size:100%;color:#ff4545;padding-top:1%"><div style="width:15%;">{{post.Punchers2}}</div></center>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- share comment icons -->
+	                          <div class="row">
+
+	                              <!-- <div class="col s2 l1">
+	                                  <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
+	                              </div> -->
+
+	                              <!-- Comment button -->
+	                                  <div class="col s2 l1">
+	                                      <a class="modal-trigger waves-effect waves-light" ng-click="showComments(post.id)">
+	                                          <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
+	                                      </a>
+	                                  </div>
+
+
+	                          </div>
+	                      </div>
 
                     </div>
                     <div id="test3" class="tab_contents" class="col s12">
 
                         <!-- COPY the same content from TAB 1 above -->
+												<div class="section card col l12 s12 main_card" ng-repeat="post in communityThree">
+	                          <div class="card-content content">
+	                              <div class="row">
+	                                  <div class="col s12">
+	                                      <center class="row">
+	                                          <img class="circle responsive-img col s6" src="images/punchit.png" alt="Profile picture here" style="height: 50px;width:74px"/>
+
+	                                          <span class="col s6" style="margin-top:15px;">
+	                                              <a href="#" style="color:red;float:left">Punchit.io</a>
+	                                          </span>
+	                                      </center>
+	                                  </div>
+
+	                              <!-- Post Question -->
+	                                  <div style="margin-top:1%;" class="col s12">
+	                                      <p style="color:#989489;font-size:18px;text-align:left;margin-left:1%;">{{post.title}}</p>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- Post images -->
+	                          <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
+	                              <div class="row">
+	                                  <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a ng-click="click()"><img class="responsive-img" ng-src="{{post.image1}}" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
+	                                  </div>
+
+
+	                                  <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a><img class="responsive-img" src="{{post.image2}}" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
+	                                  </div>
+
+	                              </div>
+	                          </div>
+
+	                          <div class="card-content" style="margin-top:-5%;">
+	                              <div class="row">
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image1title}}</p>
+	                                      <div style="background-color:#ff4545;color: #ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <div style="border:1px;"><p style="text-align:center;font-size:100%;color:red;padding-top:1%">{{post.Punchers1}}</p></div>
+	                                  </div>
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image2title}}</p>
+	                                      <div style="background-color:#ff4545;color:#ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <center style="font-size:100%;color:#ff4545;padding-top:1%"><div style="width:15%;">{{post.Punchers2}}</div></center>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- share comment icons -->
+	                          <div class="row">
+
+	                              <!-- <div class="col s2 l1">
+	                                  <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
+	                              </div> -->
+
+	                              <!-- Comment button -->
+	                                  <div class="col s2 l1">
+	                                      <a class="modal-trigger waves-effect waves-light" ng-click="showComments(post.id)">
+	                                          <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
+	                                      </a>
+	                                  </div>
+
+
+	                          </div>
+	                      </div>
 
                     </div>
                     <div id="test4" class="tab_contents" class="col s12">
 
                         <!-- COPY the same content from TAB 1 above -->
+												<div class="section card col l12 s12 main_card" ng-repeat="post in communityFour">
+	                          <div class="card-content content">
+	                              <div class="row">
+	                                  <div class="col s12">
+	                                      <center class="row">
+	                                          <img class="circle responsive-img col s6" src="images/punchit.png" alt="Profile picture here" style="height: 50px;width:74px"/>
+
+	                                          <span class="col s6" style="margin-top:15px;">
+	                                              <a href="#" style="color:red;float:left">Punchit.io</a>
+	                                          </span>
+	                                      </center>
+	                                  </div>
+
+	                              <!-- Post Question -->
+	                                  <div style="margin-top:1%;" class="col s12">
+	                                      <p style="color:#989489;font-size:18px;text-align:left;margin-left:1%;">{{post.title}}</p>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- Post images -->
+	                          <div class="card-image" style="margin-left: 1%; margin-top:-2%;">
+	                              <div class="row">
+	                                  <div class="col  waves-effect waves-light waves-pink" style="margin-left:3%; border:1px solid #989489;float:left;margin-right:2%;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a ng-click="click()"><img class="responsive-img" ng-src="{{post.image1}}" alt="image 1 here" style="width: 100%;height: 100%;object-fit: contain; max-height: 100%;"></a>
+	                                  </div>
+
+
+	                                  <div class="col waves-effect waves-light waves-pink" style="margin-left:1%;border:1px solid #989489;width:45%;padding:10px;height:200px;background-image:url('images/FinalBackground2.png');">
+	                                  <a><img class="responsive-img" src="{{post.image2}}" alt="image 2 here" style="width: 100%;height: 100%;object-fit: contain; max-height:100%;"></a>
+	                                  </div>
+
+	                              </div>
+	                          </div>
+
+	                          <div class="card-content" style="margin-top:-5%;">
+	                              <div class="row">
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image1title}}</p>
+	                                      <div style="background-color:#ff4545;color: #ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <div style="border:1px;"><p style="text-align:center;font-size:100%;color:red;padding-top:1%">{{post.Punchers1}}</p></div>
+	                                  </div>
+	                                  <div class="col s6">
+	                                      <p style="text-align:center;font-size:100%;color:#ff4545">{{post.image2title}}</p>
+	                                      <div style="background-color:#ff4545;color:#ff4545;height:1px;"><hr class="post_hr" noshade="noshade" style="border:0px"/></div>
+	                                      <center style="font-size:100%;color:#ff4545;padding-top:1%"><div style="width:15%;">{{post.Punchers2}}</div></center>
+	                                  </div>
+	                              </div>
+	                          </div>
+
+	                          <!-- share comment icons -->
+	                          <div class="row">
+
+	                              <!-- <div class="col s2 l1">
+	                                  <a><img src="images/share.png" style="margin-left:7px;height:inherit;width:70px;" id="share"></a>
+	                              </div> -->
+
+	                              <!-- Comment button -->
+	                                  <div class="col s2 l1">
+	                                      <a class="modal-trigger waves-effect waves-light" ng-click="showComments(post.id)">
+	                                          <img src="images/icons/comment.png" style="height:inherit;width:60px;margin-left:10px;" id="comment">
+	                                      </a>
+	                                  </div>
+
+
+	                          </div>
+	                      </div>
 
                     </div>
 
                 </div>
 
         </div>
+				<!-- Comment Modal -->
+
+						<div id="comment_modal" class="modal modal-fixed-footer">
+								<div class="modal-content">
+										<h5>Comments</h5>
+
+										<div class="row">
+												<ul class="collection">
+														<li class="collection-item avatar" ng-repeat="c in comments">
+																<img ng-src="{{c.ProfilePicture}}" alt="" class="circle">
+																<span class="title">{{c.username}}</span>
+																<p>
+																		{{c.comment}}
+																</p>
+														</li>
+												</ul>
+										</div>
+
+								</div>
+								<div class="modal-footer row">
+												<form class="col s10">
+														<div class="row">
+																<div class="input-field col s12">
+																		<textarea id="textarea1" class="materialize-textarea" ng-model="commentBox"></textarea>
+																		<label for="textarea1">Comment here....</label>
+																</div>
+														</div>
+												</form>
+
+												<a ng-click="do_comment()" class="waves-effect waves-light btn col s2"> <i class="material-icons">mode_edit</i> </a>
+
+
+								</div>
+						</div>
+
+				<!-- Comment Modal Ends -->
     </div>
 
 
-    <!-- Comment Modal -->
-
-        <div id="comment_modal" class="modal modal-fixed-footer">
-            <div class="modal-content">
-                <h5>Comments</h5>
-
-                <div class="row">
-                    <ul class="collection">
-                        <li class="collection-item avatar">
-                            <img src="images/punch_button.png" alt="" class="circle">
-                            <span class="title">Username</span>
-                            <p>
-                                comment!
-                            </p>
-                            <a href="#!" class="secondary-content">Time Stamp</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-            <div class="modal-footer row">
-
-                    <form class="col s10">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Comment here....</label>
-                            </div>
-                        </div>
-                    </form>
-
-                    <a href="#!" class="waves-effect waves-light btn col s2"> <i class="material-icons">mode_edit</i> </a>
-
-
-            </div>
-        </div>
-
-    <!-- Comment Modal Ends -->
 
 </div>
 
@@ -297,10 +495,10 @@
 		<!-- angularJs wrapper for facebook login -->
 				<script src="js/angular-fblogin.js"></script>
     <!-- Custom js -->
-        <script type="text/javascript" src="./js/custom_js.js"></script>
+        <script type="text/javascript" src="js/custom_js.js"></script>
 
     <!-- typed.js -->
-        <script type="text/javascript" src="./js/typed.js"></script>
+        <script type="text/javascript" src="js/typed.js"></script>
 				<!-- facebook sdk -->
 				<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <!-- Smooth Scroll js -->
