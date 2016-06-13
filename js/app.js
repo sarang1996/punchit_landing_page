@@ -54,6 +54,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           var token = $cookies.get('token')
           var name = $cookies.get('name')
           var ProfilePicture = $cookies.get('ProfilePicture')
+          var params = {}
           $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
           params["comment"] = $scope.commentBox
           params["post_objectId"] = id
