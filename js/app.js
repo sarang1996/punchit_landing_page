@@ -22,7 +22,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         console.log(response);
         $scope.comments = response.data
         gotobottom()
-
       },
       function(error){
         console.log(error);
@@ -113,7 +112,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   }
   function gotobottom()
   {
-    var objDiv = document.getElementById("comment_modal");
+    var objDiv = document.getElementById("modalContainer");
     objDiv.scrollTop = objDiv.scrollHeight;
   }
   $scope.do_comment = function(id){
