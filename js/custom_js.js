@@ -6,6 +6,8 @@ var scroll_obj = {last_scroll_top : 0};
 
 $(document).ready(function(){
 
+    documentResize();
+
     $('.modal-trigger').leanModal();
 
     navbarEditOnScroll();
@@ -32,8 +34,29 @@ $(document).ready(function(){
 
     $('#textarea1').trigger('autoresize');
 
+    $(document).resize(function(){
+        documentResize();
+    });
 
 });
+
+$(window).resize(function(){
+    documentResize();
+});
+
+
+function documentResize(){
+    if($(document).width() < 700){
+        $("blockquote").hide();
+        $(".slider").hide();
+        $(".section_title").css("font-size", "18pt");
+    }
+    else{
+        $("blockquote").show();
+        $(".slider").show();
+        $(".section_title").css("font-size", "30pt");
+    }
+}
 
 function navbarEditOnScroll(){
     var nav_dom = $("nav");
