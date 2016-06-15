@@ -125,6 +125,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           .success(function(response){
             console.log(response);
             $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
+            $scope.commentBox = ""
             Materialize.toast('comment add successfully',1000)
           })
           .error(function(error){
