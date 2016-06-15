@@ -123,7 +123,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         $scope.commentBox = ""
         Materialize.toast('comment add successfully',1000)
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
-        params["comment"] = $scope.comment
+        params["comment"] = comment
         params["post_objectId"] = id
         $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
           .success(function(response){
