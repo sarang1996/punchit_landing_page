@@ -113,7 +113,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   function gotobottom()
   {
     var objDiv = document.getElementById("modalContainer");
-    objDiv.scrollTop = objDiv.scrollHeight;
+    objDiv.scrollTop = objDiv.scrollHeight + 50;
   }
   $scope.do_comment = function(id){
     console.log($cookies.get('isLoggedIn'));
