@@ -149,8 +149,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
             .success(function(response){
               console.log(response);
-              $scope.comments.push({"comment" : $scope.commentBox.trim(),"username":name,"ProfilePicture":ProfilePicture})
-              $scope.commentBox = ""
             })
             .error(function(error){
               console.log(error);
