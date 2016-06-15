@@ -73,7 +73,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
     if (which == 'one') {
         if (punchers1.indexOf(id) == -1) {
           punchers1.push(id)
-          if (punchers2.indexOf(id) != 1) {
+          if (punchers2.indexOf(id) != -1) {
             punchers2.splice(id)
           }
         }
