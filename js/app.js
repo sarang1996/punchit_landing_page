@@ -13,6 +13,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
 
   $scope.showComments = function(id){
     var params = {}
+    $('#comment_modal').openModal();
     params['id'] = id
     $scope.id_of_post = id
     console.log(id);
@@ -20,7 +21,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       .then(function(response){
         console.log(response);
         $scope.comments = response.data
-        $('#comment_modal').openModal();
       },
       function(error){
         console.log(error);
