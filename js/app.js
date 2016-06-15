@@ -114,15 +114,16 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
     console.log($cookies.get('isLoggedIn'));
       if ($cookies.get('isLoggedIn')) {
         var params = {}
+        var comment = $scope.commentBox
         var id = $scope.id_of_post
         var token = $cookies.get('token')
         var name = $cookies.get('name')
+        var ProfilePicture = $cookies.get('ProfilePicture')
         $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
         $scope.commentBox = ""
         Materialize.toast('comment add successfully',1000)
-        var ProfilePicture = $cookies.get('ProfilePicture')
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
-        params["comment"] = $scope.commentBox
+        params["comment"] = $scope.comment
         params["post_objectId"] = id
         $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
           .success(function(response){
@@ -135,6 +136,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       else {
         authService.authorize().then(function(response){
           console.log(response);
+          var comment = $scope.commentBox
           $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
           $scope.commentBox = ""
           Materialize.toast('comment add successfully')
@@ -144,7 +146,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           var ProfilePicture = $cookies.get('ProfilePicture')
           var params = {}
           $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
-          params["comment"] = $scope.commentBox
+          params["comment"] = comment
           params["post_objectId"] = id
           $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
             .success(function(response){
