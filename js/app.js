@@ -117,6 +117,9 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         var id = $scope.id_of_post
         var token = $cookies.get('token')
         var name = $cookies.get('name')
+        $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
+        $scope.commentBox = ""
+        Materialize.toast('comment add successfully',1000)
         var ProfilePicture = $cookies.get('ProfilePicture')
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
         params["comment"] = $scope.commentBox
@@ -124,9 +127,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         $http.post(UrlService.HostName+'/api/do_comment',JSON.stringify(params))
           .success(function(response){
             console.log(response);
-            $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
-            $scope.commentBox = ""
-            Materialize.toast('comment add successfully',1000)
           })
           .error(function(error){
             console.log(error);
@@ -135,6 +135,9 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       else {
         authService.authorize().then(function(response){
           console.log(response);
+          $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
+          $scope.commentBox = ""
+          Materialize.toast('comment add successfully')
           var id = $scope.id
           var token = $cookies.get('token')
           var name = $cookies.get('name')
@@ -148,7 +151,6 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
               console.log(response);
               $scope.comments.push({"comment" : $scope.commentBox.trim(),"username":name,"ProfilePicture":ProfilePicture})
               $scope.commentBox = ""
-              Materialize.toast('comment add successfully')
             })
             .error(function(error){
               console.log(error);
