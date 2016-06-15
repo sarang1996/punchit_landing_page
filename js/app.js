@@ -60,7 +60,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
     }
     var punchers1 = post.Punchers1
     var punchers2 = post.Punchers2
-    params["post"] = id
+    params["post"] = post_id
     params["which"] = which
     $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
     $http.post(UrlService.HostName+"/api/vote",JSON.stringify(params))
