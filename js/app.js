@@ -14,6 +14,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
   $scope.showComments = function(id){
     var params = {}
     $('#comment_modal').openModal();
+    gotobottom()
     params['id'] = id
     $scope.id_of_post = id
     console.log(id);
@@ -109,7 +110,11 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       $scope.communityFour[index] = post
     }
   }
-
+  function gotobottom()
+  {
+    var objDiv = document.getElementById("comment_modal");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }
   $scope.do_comment = function(id){
     console.log($cookies.get('isLoggedIn'));
       if ($cookies.get('isLoggedIn')) {
@@ -121,6 +126,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         var ProfilePicture = $cookies.get('ProfilePicture')
         $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
         $scope.commentBox = ""
+        gotobottom()
         Materialize.toast('comment add successfully',1000)
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(token + ":" + "");
         params["comment"] = comment
@@ -140,6 +146,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
           $scope.comments.push({"comment" : $scope.commentBox,"username":name,"ProfilePicture":ProfilePicture})
           $scope.commentBox = ""
           Materialize.toast('comment add successfully')
+          gotobottom()
           var id = $scope.id
           var token = $cookies.get('token')
           var name = $cookies.get('name')
