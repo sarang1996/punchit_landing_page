@@ -74,7 +74,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
         if (punchers1.indexOf(id) == -1) {
           punchers1.push(id)
           if (punchers2.indexOf(id) != -1) {
-            punchers2.splice(id)
+            punchers2.splice(punchers2.indexOf(id))
           }
         }
     }
@@ -82,7 +82,7 @@ app.controller('postsController',['$scope','$cookies','PostMan','UrlService','au
       if (punchers2.indexOf(id) == -1) {
         punchers2.push(id)
         if (punchers1.indexOf(id) != -1) {
-          punchers1.splice(id)
+          punchers1.splice(punchers1.indexOf(id))
         }
       }
     }
